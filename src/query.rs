@@ -15,6 +15,7 @@ mod timestamp;
 mod timestamp_precision;
 mod timestamp_tz;
 
+use crate::model::QueryOpt;
 use anyhow::Error;
 use fetch_batch::{fetch_strategy, FetchBatch};
 use io_arg::IoArg;
@@ -29,7 +30,7 @@ use self::{
     parquet_writer::{parquet_output, ParquetWriterOptions},
 };
 
-use crate::{connection::open_connection, QueryOpt};
+use crate::connection::open_connection;
 
 /// Execute a query and writes the result to parquet.
 pub fn query(opt: QueryOpt) -> Result<(), Error> {

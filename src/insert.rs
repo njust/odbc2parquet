@@ -28,8 +28,8 @@ use parquet::{
 
 use crate::{
     connection::open_connection,
+    model::InsertOpt,
     parquet_buffer::{BufferedDataType, ParquetBuffer},
-    InsertOpt,
 };
 
 /// Message we emmit if we hit a code path we expected to be unreachable.

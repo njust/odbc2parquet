@@ -11,25 +11,25 @@ pub struct ConnectOpts {
     #[arg(long, conflicts_with = "dsn")]
     /// Prompts the user for missing information from the connection string. Only supported on
     /// windows platform.
-    prompt: bool,
+    pub prompt: bool,
     /// The connection string used to connect to the ODBC data source. Alternatively you may specify
     /// the ODBC dsn.
     #[arg(long, short = 'c', env = "ODBC_CONNECTION_STRING")]
-    connection_string: Option<String>,
+    pub connection_string: Option<String>,
     /// ODBC Data Source Name. Either this or the connection string must be specified to identify
     /// the datasource. Data source name (dsn) and connection string, may not be specified both.
     #[arg(long, conflicts_with = "connection_string")]
-    dsn: Option<String>,
+    pub dsn: Option<String>,
     /// User used to access the datasource specified in dsn. Should you specify a connection string
     /// instead of a Data Source Name the user name is going to be appended at the end of it as the
     /// `UID` attribute.
     #[arg(long, short = 'u', env = "ODBC_USER")]
-    user: Option<String>,
+    pub user: Option<String>,
     /// Password used to log into the datasource. Only used if dsn is specified, instead of a
     /// connection string. Should you specify a Connection string instead of a Data Source Name the
     /// password is going to be appended at the end of it as the `PWD` attribute.
     #[arg(long, short = 'p', env = "ODBC_PASSWORD", hide_env_values = true)]
-    password: Option<String>,
+    pub password: Option<String>,
 }
 
 /// Open a database connection using the options provided on the command line.
